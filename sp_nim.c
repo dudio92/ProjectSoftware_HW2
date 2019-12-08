@@ -79,6 +79,10 @@ int user_move(int *whole_array_pointer, int heap_index, int reduce) {
     return 1;
 }
 
+int user_turn(int *whole_array_pointer,int heaps_number) {
+
+}
+
 
 
 

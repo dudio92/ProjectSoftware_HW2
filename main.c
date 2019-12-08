@@ -9,7 +9,7 @@ int main() {
     int HEAPS_ARRAY [HEAPS_ARRAY_SIZE] ;
     int *whole_array_pointer = HEAPS_ARRAY;
     int j = 0;
-    int heaps_size_input,single_heap_size,heap_index, reduce ;
+    int heaps_size_input,single_heap_size,heap_index, reduce,user_input;
     int turn = 1 ;
 
 
@@ -23,25 +23,29 @@ int main() {
 
     printf("Enter the heap sizes:\n");
     for (j = 0; j < heaps_size_input ; j++) {
-        if (scanf("%d", &single_heap_size) == 1) {
-            printf("%d", single_heap_size);
-            if ((single_heap_size < 0)) {
-                printf("%d", single_heap_size);
+            if (scanf("%d",&single_heap_size)< 1) {
                 printf("Error: the size of heap %d should be positive.\n", j + 1);
                 return -1;
-            } else if (scanf("%d", &single_heap_size) != 1) {
-                printf("Error2: the size of heap %d should be positive.\n", j + 1);
+            } ;
+            /* printf(" scanf input is %d at index %d", single_heap_size,j); */
+            if ((single_heap_size < 0)) {
+                /* printf("%d", single_heap_size); */
+                printf("Error: the size of heap %d should be positive.\n", j + 1);
                 return -1;
             }
             HEAPS_ARRAY[j] = single_heap_size;
-        }
     }
+
 
     while (is_empty(whole_array_pointer,heaps_size_input) != 1) {
         print_heap(whole_array_pointer,heaps_size_input,turn) ;
 
         printf("Your turn: please enter the heap index and the number of removed objects:\n");
-        scanf("%d%d", &heap_index, &reduce);
+        user_input = scanf("%d%d", &heap_index, &reduce);
+        if (user_input == EOF || feof(stdin)){
+                return -1;
+        }
+
         if (check_validity(whole_array_pointer, heaps_size_input, heap_index, reduce) == 1) {
             user_move(whole_array_pointer, heap_index, reduce);
             if (is_empty(whole_array_pointer,heaps_size_input) == 1) {
