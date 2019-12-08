@@ -20,6 +20,6 @@ int find_min_positive_heap(int *whole_array_pointer,int heaps_number) ;
 
 int user_move(int *whole_array_pointer, int heap_index, int reduce) ;
 
-int user_turn(int *whole_array_pointer,int heaps_number) ;
+int user_turn(int *whole_array_pointer,int heaps_number,int heap_index, int reduce) ;
 
 #endif /* HW2_SP_NIM_H */

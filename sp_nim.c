@@ -1,5 +1,8 @@
 
 #include <stdio.h>
+#include "main_aux.h"
+
+
 int is_empty(int *whole_array_pointer , int heaps_number) {
     int i = 0 ;
     for ( i = 0; i <heaps_number ; i++) {
@@ -79,12 +82,25 @@ int user_move(int *whole_array_pointer, int heap_index, int reduce) {
     return 1;
 }
 
-int user_turn(int *whole_array_pointer,int heaps_number) {
 
+/* int user_turn(int *whole_array_pointer,int heaps_number) {
+    printf("Your turn: please enter the heap index and the number of removed objects:\n");
+
+    user_input = scanf("%d%d", &heap_index, &reduce);
+    if (user_input == EOF || feof(stdin)){
+        return -1;
+    }
+
+    if (check_validity(whole_array_pointer, heaps_number, heap_index, reduce) == 1) {
+        user_move(whole_array_pointer, heap_index, reduce);
+        if (is_empty(whole_array_pointer,heaps_number) == 1) {
+            printf("You win!\n");
+            return 0;
+        }
+    }
+    else {
+        printf("ERROR: Invalid input.\nPlease enter again the heap index and the number of  removed objects:\n");
+    }
+    return 0;
 }
-
-
-
-
-
-
+ */
