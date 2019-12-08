@@ -17,17 +17,24 @@ int main() {
     scanf("%d", &heaps_size_input);
     if (!(heaps_size_input >= 1) && (heaps_size_input <= 32 )) {
         printf("Error: the number of heaps must be between 1 and 32.\n");
-        return 0 ;
+        return -1 ;
     }
+    else if (heaps_size_input == EOF) { return -1 ; }
 
     printf("Enter the heap sizes:\n");
     for (j = 0; j < heaps_size_input ; j++) {
-        scanf("%d", &single_heap_size) ;
-        if (single_heap_size < 0 || !isdigit(single_heap_size)) {
-            printf("Error: the size of heap %d should be positive.\n",single_heap_size-1) ;
-            return 0;
+        if (scanf("%d", &single_heap_size) == 1) {
+            printf("%d", single_heap_size);
+            if ((single_heap_size < 0)) {
+                printf("%d", single_heap_size);
+                printf("Error: the size of heap %d should be positive.\n", j + 1);
+                return -1;
+            } else if (scanf("%d", &single_heap_size) != 1) {
+                printf("Error2: the size of heap %d should be positive.\n", j + 1);
+                return -1;
+            }
+            HEAPS_ARRAY[j] = single_heap_size;
         }
-        HEAPS_ARRAY[j] = single_heap_size ;
     }
 
     while (is_empty(whole_array_pointer,heaps_size_input) != 1) {
