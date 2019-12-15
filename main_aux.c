@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+/* just print heaps status */
 int print_heap( int *whole_array_pointer, int heaps_size_input,int turn ) {
     int  i = 0 ;
     printf("In turn %d heap sizes are:", turn) ;
@@ -10,6 +11,7 @@ int print_heap( int *whole_array_pointer, int heaps_size_input,int turn ) {
     return 0;
 }
 
+/* helper function to determine if move is legal - input wise (EOF, input type..) and game status (cannot take more than current heap size) */
 int check_validity( int *whole_array_pointer,int heap_size_input, int heap_number, int reduce, int scan_result) {
     if (scan_result == EOF || feof(stdin)){
         printf("ERROR: Invalid input.\nPlease enter again the heap index and the number of removed objects:\n");
