@@ -3,6 +3,7 @@
 #define  HEAPS_ARRAY_SIZE 32
 #include "main_aux.h"
 #include "sp_nim.h"
+/* this is msg */
 
 int main() {
     int HEAPS_ARRAY[HEAPS_ARRAY_SIZE];
